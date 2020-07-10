@@ -1,15 +1,13 @@
-chrome.runtime.onInstalled.addListener(function() {
+chrome.runtime.onInstalled.addListener(function () {
   chrome.contextMenus.create({
     title: 'Bricklink Part-Out value for' + ' "%s"',
     id: 'commandId',
-    contexts: ['selection']
+    contexts: ['selection'],
   });
 });
 
-chrome.contextMenus.onClicked.addListener(function(item, tab) {
-  const url = `https://www.bricklink.com/catalogPOV.asp?itemType=S&itemNo=${encodeURIComponent(
-    item.selectionText
-  )}&itemSeq=1&itemQty=1&breakType=M&itemCondition=N&incInstr=Y&incParts=Y`;
-
+chrome.contextMenus.onClicked.addListener(function (item, tab) {
+  const legoset = item.selectionText.replace(/[^0-9]/g, '');
+  const url = `https://www.bricklink.com/catalogPOV.asp?itemType=S&itemNo=${legoset}&itemSeq=1&itemQty=1&breakType=M&itemCondition=N&incInstr=Y&incParts=Y`;
   chrome.tabs.create({ url: url, index: tab.index + 1 });
 });
