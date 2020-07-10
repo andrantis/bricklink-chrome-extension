@@ -1,0 +1,19 @@
+{
+    "name": "Bricklink Part-Out",
+    "description": "Get the Bricklink part-out value  of a selected LEGO set number",
+    "version": "1.0",
+    "author": "Andres Antista",
+    "manifest_version": 2,
+    "permissions": [
+        "contextMenus", "tabs"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "icons": {
+        "128": "bricklink128.png"
+    }
+}
