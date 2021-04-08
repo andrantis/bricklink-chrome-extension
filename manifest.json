@@ -3,17 +3,17 @@
     "description": "Get the Bricklink part-out value  of a selected LEGO set number",
     "version": "1.0",
     "author": "Andres Antista",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "permissions": [
         "contextMenus", "tabs"
     ],
     "background": {
-        "scripts": [
-            "background.js"
-        ],
-        "persistent": false
+        "service_worker": "background.js"
     },
     "icons": {
+        "16": "bricklink16.png",
+        "32": "bricklink32.png",
+        "48": "bricklink48.png",
         "128": "bricklink128.png"
     }
 }
